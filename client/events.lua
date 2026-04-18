@@ -25,7 +25,7 @@ AddEventHandler('mumbleConnected', function(address, isReconnecting)
 		distance =  voiceModeData[1],
 		mode = voiceModeData[2],
 	}, true)
-	TriggerEvent('pma-voice:setTalkingMode', mode)
+	-- AWZ bridge: emit only one radius event to avoid double circle spawn
 	TriggerEvent('hud:changeRadius', voiceModeData[1])
 
 	handleInitialState()

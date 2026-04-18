@@ -119,7 +119,9 @@ CreateThread(function()
 			end
 			if curRangeDistance and lastRangeDistance ~= curRangeDistance then
 				lastRangeDistance = curRangeDistance
-				TriggerEvent('hud:changeRadius', curRangeDistance)
+				-- AWZ: keep the cached range in sync, but do not re-emit hud:changeRadius here.
+				-- The primary emit already happens in setProximityState()/mumbleConnected;
+				-- re-emitting from this polling loop causes a second circle spawn ~1s later.
 			end
 		end
 
