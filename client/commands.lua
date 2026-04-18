@@ -51,7 +51,6 @@ function setProximityState(proximityRange, isCustom)
 		-- JS expects this value to be - 1, "custom" voice is on the last index
 		voiceMode = isCustom and #Cfg.voiceModes or mode - 1
 	})
-	TriggerEvent('pma-voice:setTalkingMode', isCustom and proximityRange or mode)
 	TriggerEvent('hud:changeRadius', proximityRange)
 end
 
